@@ -1,0 +1,11 @@
+### PATELA DE CORES ###
+
+.principal { #ffffff };
+.secundaria { #000000 };
+
+.color1 { #edeccf }; - Background
+.color2 { #f1c694 }; - Color Barra de Navegação
+.color3 { #dc6378 }; - Tabela
+.color4 { #207178 };
+.color5 { #101652 };
+
