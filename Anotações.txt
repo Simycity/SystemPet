@@ -6,6 +6,9 @@
 .color1 { #edeccf }; - Background
 .color2 { #f1c694 }; - Color Barra de Navegação
 .color3 { #dc6378 }; - Tabela
-.color4 { #207178 };
+.color4 { #207178 }; - NavBar
 .color5 { #101652 };
+
+Efeito Transition entre Login & Cadastro. 
+
 

@@ -28,7 +28,7 @@ const Login = () => {
           <Col md={6} className={styles.right}>
             <Form style={{ width: "100%", maxWidth: "400px" }}>
               {/* Campo para Título do sistema */}
-              <h1 className="mt-5 ">LOGIN</h1>
+              <h1 className="mb-5">LOGIN</h1>
 
               {/* Caixa para o email */}
               <FloatingLabel
