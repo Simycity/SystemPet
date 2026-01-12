@@ -12,78 +12,76 @@ import {
 import styles from "./Login.module.css";
 import logo from "../assets/logo.png";
 
-// importando o hook para verificar o login, vindo do useUsuários
-import { useVerificaLogin } from "../hooks/useUsuarios";
-
-// Importando a função useform do pacote hook-form
-import { useForm } from "react-hook-form";
-
-//Importando o useState para tratar de variáveis
-import { useEffect, useState } from "react";
-
-// importação do Navigate para transitar entre as paginas
-import { useNavigate } from "react-router-dom";
-
-// Importar as informações do contexto autenticação de usuário
-import { AuthContext } from "../contexts/UserContext.jsx";
-import { useContext } from "react";
-
 const Login = () => {
-  // Usa as variáveis de contexto do usuário
-  const { logout } = useContext(AuthContext);
-
-  //Assim que entrar na página, o localStorage é resetado
-  useEffect(() => {
-    logout();
-  }, []);
-
-  //register = cria um objeto com os valores retirados dos inputs
-  //handleSubmit = envia os dados formulário, caso dê erro ou sucesso
-  //formState { erros } = objeto que guarda uma lista de erros que aconteceram na tentativa do envio
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  //Variável classes do Alert
-  const [alertaClasse, setAlertaClasse] = useState("d-none");
-
-  //Usando apenas a função verificaLogin, que importei do hook
-  const { verificaLogin } = useVerificaLogin();
-
-  //Criando o navigate
-  const navigate = useNavigate();
-
-  //Caso o envio dê certo
-  // data = objeto com todas as informações preenchidas nos campos do formulário
-  const onSubmit = async (data) => {
-    console.log("Dados enviados:", data);
-
-    //Chama a função assíncrona que verifica o login
-    const resposta = await verificaLogin(data);
-
-    //Caso a resposta seja positiva mostra o alerta e leva ele pra home
-    if (resposta === "Login efetuado com sucesso") {
-      alert(resposta);
-      navigate("/home");
-    } else {
-      // exibe o alerta de erro
-      setAlertaClasse("my-3 w-75 mx-auto");
-    }
-  };
-
-  //Caso o envio dê errado
-  //errors = objeto com todos os erros do envio
-  const onError = (errors) => {
-    console.log("Errors:", errors);
-  };
-
   return (
     <div className={styles.pageLogin}>
-        <Container>
-            
-        </Container>
+      <Container>
+        {/* Linha para guardar os campos de Login e ícone */}
+
+        <Row className="g-0">
+          {/* Coluna para o ícone da página */}
+          <Col className={styles.left}>
+            <img src={logo} alt="Logo" />
+          </Col>
+
+          {/* Lado do Formulário */}
+          <Col md={6} className={styles.right}>
+            <Form style={{ width: "100%", maxWidth: "400px" }}>
+              {/* Campo para Título do sistema */}
+              <h1 className="mt-5 ">LOGIN</h1>
+
+              {/* Caixa para o email */}
+              <FloatingLabel
+                controlId="floatingEmail"
+                label="Digite seu email"
+                // className="mb-5"
+                className={styles.floating}
+              >
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className={styles.inputLine}
+                />
+              </FloatingLabel>
+
+              {/* Caixa para senha */}
+              <FloatingLabel
+                controlId="floatingSenha"
+                label="Digite a sua senha"
+                // className="mb-5"
+                className={styles.floating}
+              >
+                <Form.Control
+                  type="password"
+                  placeholder="Senha"
+                  className={styles.inputLine}
+                />
+              </FloatingLabel>
+
+              <Row className={styles.remeberPassword}>
+                <a href="./Cadastro"></a>
+              </Row>
+
+              {/* Lembre-se de mim */}
+              <Form.Check
+                type="checkbox"
+                label="Lembre-se de mim"
+                className={styles.remember}
+              />
+
+              <Button
+                style={{ backgroundColor: "#207178" }}
+                variant="primary"
+                type="submit"
+                className="mt-5"
+                size="lg"
+              >
+                Entrar
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

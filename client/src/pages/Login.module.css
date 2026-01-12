@@ -1,8 +1,84 @@
 .pagelogin {
   background-color: #edeccf;
   min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* garante esquerda → direita */
+}
+
+/* Lado da logo */
+.left {
+  width: 50%;
+  min-height: 100vh;
+  background-color: #dc6378;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 2rem; */
+  
+}
+
+/* Lado do formulário */
+.right {
+  width: 50%;
+  min-height: 100vh;
+  background-color: #edeccf;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo */
+.left img {
+  max-width: 90%;
+  height: auto;
+  /* border-radius: 20px; */
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Campo base */
+.inputLine {
+  border: none !important;
+  border-bottom: 2px solid #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  position: relative;
+
+  transition: border-color 0.3s ease;
+}
+
+/* Linha animada */
+.inputLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #dc6378;
+  transition: width 0.4s ease;
+}
+
+/* Ao focar */
+.inputLine:focus {
+  outline: none;
+}
+
+.inputLine:focus::after {
+  width: 100%;
+}
+
+/* Floating label spacing */
+.floating {
+  margin-bottom: 1.8rem;
+}
+
+/* Checkbox */
+.remember {
+  margin-top: 0.8rem;
 }

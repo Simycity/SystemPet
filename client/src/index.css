@@ -4,7 +4,7 @@
   min-height: 100vh; /* Garante altura mínima da tela inteira */
   width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 /* Estilização das mensagens de erro */
