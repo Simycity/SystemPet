@@ -1,0 +1,15 @@
+{
+  "funcionarios": [
+    { 
+        "id": "1", 
+        "nome": "", 
+        "email": "", 
+        "senha": "", 
+        "tipo": "Administrador" 
+    }
+  ],
+  "usuarios": [{}],
+  "adestradores": [{}],
+  "pets": [{}],
+  "agenda": [{}]
+}
