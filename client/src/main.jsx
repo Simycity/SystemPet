@@ -1,16 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
 // Importando Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Importando Provedor de Rotas
 import { RouterProvider } from "react-router-dom";
 // Importando a Rota provedora (rota Pai)
-import MyRouter from './MyRouter.jsx';
-createRoot(document.getElementById('root')).render(
+import MyRouter from "./MyRouter.jsx";
+
+// Importando provedor de contexto
+import { AuthProvider } from "./contexts/UserContext.jsx";
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={MyRouter} />
+    {/* Fornecendo as informações de contexto para toda a aplicação */}
+    <AuthProvider>
+      <RouterProvider router={MyRouter} />
+    </AuthProvider>
   </StrictMode>,
-)
+);
