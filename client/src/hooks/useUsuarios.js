@@ -2,6 +2,8 @@
 import { useContext } from "react";
 // Importando contexto da pasta contexto
 import { AuthContext } from "../contexts/UserContext.jsx";
+// Importando componente de imagem
+import { ImagemPerfil } from "../components/ImagemPerfil/ImagemPerfil.jsx";
 
 export function useVerificaLogin() {
   const { login } = useContext(AuthContext);
@@ -38,16 +40,49 @@ export function useVerificaLogin() {
     const { usuarios, funcionarios } = await buscaUsuarios();
 
     // Busca primeiramente em usuarios
-    const usuarioEncintrado = (usuarios || []).find(
+    const usuarioEncontrado = (usuarios || []).find(
       (u) => u.email === email && u.senha === senha,
     );
-    if (usuarioEncintrado) {
+    if (usuarioEncontrado) {
       const usuario = {
-        id:
+        id: usuarioEncontrado.id,
         nome:
-        email:
-        
-      }
-    } 
+          usuarioEncontrado.nome ||
+          usuarioEncontrado.nome_funcionario ||
+          "Usuário",
+        email: usuarioEncontrado.email,
+        ImagemPerfil:
+          usuarioEncontrado.ImagemPerfil ||
+          usuarioEncontrado.ImagemPerfil ||
+          "",
+      };
+      login(usuario);
+      return `Bem-vindo ${usuario.nome}`;
+    }
+
+    // Agora faz a busca em funcionarios
+    const funcionarioEncontrado = (funcionarios || []).find(
+      (f) => f.email === email && f.senha === senha,
+    );
+    if (funcionarioEncontrado) {
+      const funcionario = {
+        id: funcionarioEncontrado.id,
+        nome:
+          funcionarioEncontrado.nome ||
+          funcionarioEncontrado.nome_funcionario ||
+          "Funcionário",
+        email: funcionarioEncontrado.email,
+        ImagemPerfil:
+          funcionarioEncontrado.ImagemPerfil ||
+          funcionarioEncontrado.ImagemPerfil ||
+          "",
+      };
+      login(funcionario);
+      return `Bem-vindo ${funcionario.nome}`;
+    }
+
+    return "Email ou Senha inválidos";
   };
+
+  return { verificaLogin };
 }
