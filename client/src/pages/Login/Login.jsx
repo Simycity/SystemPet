@@ -25,6 +25,10 @@ import { useState, useEffect } from "react";
 // Importação do Navigate
 import { Navigate } from "react-router-dom";
 
+// Importação do contexto e verificação de usuário
+import { AuthContext } from "../../contexts/UserContext.jsx";
+import { useContext } from "react";
+
 // Iniciando o formulário de Login
 const Login = () => {
   return (
