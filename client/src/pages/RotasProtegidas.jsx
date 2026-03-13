@@ -7,10 +7,10 @@ import { AuthContext } from "../contexts/UserContext.jsx";
 import { useContext } from "react";
 
 // Importando Barra de Navegação
-// import NavBar from "../components/NavBar/NavBar.jsx";
+// import BarraNavegacao from "../components/BarraNavegacao/BarraNavegacao.jsx";
 
 const RotasProtegidas = () => {
-    
+
   // Pega a variável de usuario nome pra saber se tem alguém logado
   const { usuarioNome } = useContext(AuthContext);
 
