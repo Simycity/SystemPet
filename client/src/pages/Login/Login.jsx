@@ -23,13 +23,14 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 
 // Importação do Navigate
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Importando hook para a verficação de login
 import { useVerificaLogin } from "../../hooks/useUsuarios.js";
 
 // Importando a logo fo sistema
 import logo from "../../assets/PetLux.png";
+
 
 // Iniciando o formulário de Login
 const Login = () => {
@@ -109,20 +110,21 @@ const Login = () => {
 
               {/* Campo de Email */}
               <FloatingLabel
-              controlId="inputEmail"
-              label="Digite seu email"
-              className="mb-5"
+                controlId="inputEmail"
+                label="Digite seu email"
+                className="mb-5"
               >
                 <Form.Control
-                type="email"
-                {...register("email", {
-                  required: "O email é um campo obrigatório",
-                  pattern: {
-                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
-                    message: "Email inválido"
-                  },
-                  validate: (value) => value.includes("@") || "O email deve possuir um @"
-                })}
+                  type="email"
+                  {...register("email", {
+                    required: "O email é um campo obrigatório",
+                    pattern: {
+                      value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+                      message: "Email inválido",
+                    },
+                    validate: (value) =>
+                      value.includes("@") || "O email deve possuir um @",
+                  })}
                 />
                 {errors.email && (
                   <p className="error">{errors.email.message}</p>
@@ -130,16 +132,16 @@ const Login = () => {
               </FloatingLabel>
 
               {/* Campo de Senha */}
-              <FloatingLabel 
-              controlId="inputSenha" 
-              label="Digite sua senha" 
-              className="mb-5"
+              <FloatingLabel
+                controlId="inputSenha"
+                label="Digite sua senha"
+                className="mb-5"
               >
                 <Form.Control
-                type="password"
-                {...register("senha", {
-                  required: "Senha é um campo obrigatório",
-                })}
+                  type="password"
+                  {...register("senha", {
+                    required: "Senha é um campo obrigatório",
+                  })}
                 />
                 {errors.senha && (
                   <p className="error">{errors.senha.message}</p>
@@ -148,26 +150,30 @@ const Login = () => {
 
               {/* Botão para o envio do formulário */}
               <Button
-              style={{ 
-                backgroundColor: "#2d3839",
-                color: "#fffff"
-
-              }}
-              type="submit"
-              className="mb-4"
-              size="lg"
+                style={{
+                  backgroundColor: "#2d3839",
+                  color: "#fffff",
+                }}
+                type="submit"
+                className="mb-4"
+                size="lg"
               >
                 LOGIN
               </Button>
+
+              {/* Link para Página de Cadastro */}
+
+              <Link className={styles.textCadastro}>
+                Não tem login?{" "}
+                <a href="/cadastro" className={styles.linkCadastro}>
+                  Cadastre-se agora
+                </a>
+              </Link>
 
               {/* Alerta */}
               <Alert variant="danger" className={alerta}>
                 Usuário ou senha inválidos
               </Alert>
-
-
-
-
             </Form>
           </Col>
         </Row>

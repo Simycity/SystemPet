@@ -33,6 +33,7 @@
   margin-bottom: 30px;
 }
 
+
 /* Tablets */
 @media (max-width: 992px) {
   .pageLogin {
@@ -75,4 +76,18 @@
   .form {
     padding: 1rem;
   }
+}
+
+.textCadastro {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.linkCadastro {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.linkCadastro:hover {
+  text-decoration: underline;
 }
