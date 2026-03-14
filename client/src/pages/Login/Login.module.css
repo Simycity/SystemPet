@@ -1,0 +1,9 @@
+.pageLogin{
+    width: 490px;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #ffffff80;
+    backdrop-filter: blur(8px);
+    background: #e0e4ce;
+}

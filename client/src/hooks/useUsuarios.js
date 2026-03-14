@@ -3,7 +3,7 @@ import { useContext } from "react";
 // Importando contexto da pasta contexto
 import { AuthContext } from "../contexts/UserContext.jsx";
 // Importando componente de imagem
-import { ImagemPerfil } from "../components/ImagemPerfil/ImagemPerfil.jsx";
+// import { ImagemPerfil } from "../components/ImagemPerfil/ImagemPerfil.jsx";
 
 export function useVerificaLogin() {
   const { login } = useContext(AuthContext);

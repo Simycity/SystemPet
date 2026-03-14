@@ -1,4 +1,4 @@
-import Button from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 // Importando Navigate para navegação entre páginas
 import { useNavigate } from "react-router-dom";

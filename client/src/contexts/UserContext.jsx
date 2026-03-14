@@ -8,7 +8,7 @@ export const AuthContext = createContext();
     Criando o provider do contexto
     Provider = fornece as informações para os componentes filhos
 */
-export const AuthProvider = (children) => {
+export const AuthProvider = ({ children }) => {
   //    Declarando o estado (useState) para guardar o usuário logado no momento
   const [UsuarioNome, setUsuarioNome] = useState();
 
@@ -39,7 +39,7 @@ export const AuthProvider = (children) => {
 
   //   Retorno do Provider com as informações de usuário, login e logout
   return (
-    <AuthContext.Provider value={{ UsuarioNome, login, logout }}>
+    <AuthContext.Provider value={{ setUsuarioNome, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
