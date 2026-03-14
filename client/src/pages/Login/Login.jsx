@@ -23,14 +23,13 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 
 // Importação do Navigate
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Importando hook para a verficação de login
 import { useVerificaLogin } from "../../hooks/useUsuarios.js";
 
 // Importando a logo fo sistema
 import logo from "../../assets/PetLux.png";
-
 
 // Iniciando o formulário de Login
 const Login = () => {
@@ -162,12 +161,15 @@ const Login = () => {
               </Button>
 
               {/* Link para Página de Cadastro */}
-              <Link className={styles.textCadastro}>
-                Não tem login?{" "}
-                <a to="/cadastro" className={styles.linkCadastro}>
-                  Cadastre-se agora
-                </a>
-              </Link>
+              <p className={styles.linkCadastro}>
+                Não possui conta?{""}
+                <span
+                  className={styles.link}
+                  onClick={() => navigate("/cadastro")}
+                >
+                  Cadastre-se
+                </span>
+              </p>
 
               {/* Alerta */}
               <Alert variant="danger" className={alerta}>
