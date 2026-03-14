@@ -162,10 +162,9 @@ const Login = () => {
               </Button>
 
               {/* Link para Página de Cadastro */}
-
               <Link className={styles.textCadastro}>
                 Não tem login?{" "}
-                <a href="/cadastro" className={styles.linkCadastro}>
+                <a to="/cadastro" className={styles.linkCadastro}>
                   Cadastre-se agora
                 </a>
               </Link>

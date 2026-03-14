@@ -33,7 +33,6 @@
   margin-bottom: 30px;
 }
 
-
 /* Tablets */
 @media (max-width: 992px) {
   .pageLogin {
@@ -78,16 +77,29 @@
   }
 }
 
-.textCadastro {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.linkCadastro {
-  font-weight: 600;
+.linkCadastro,
+.linkCadastro:visited {
+  color: "#27191c";
   text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
 .linkCadastro:hover {
-  text-decoration: underline;
+  color: #2d3839;
+}
+
+.linkCadastro::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #27191c;
+  transition: width 0.3s ease;
+}
+
+.linkCadastro:hover::after {
+  width: 100%;
 }
