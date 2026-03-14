@@ -23,10 +23,13 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 
 // Importação do Navigate
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Importando hook para a verficação de login
 import { useVerificaLogin } from "../../hooks/useUsuarios.js";
+
+// Importando a logo fo sistema
+import logo from "../../assets/PetLux.png";
 
 // Iniciando o formulário de Login
 const Login = () => {
@@ -82,16 +85,89 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.pageLogin}>
-      <Container>
-        <Row>
-          {/* Campo para Imagem/Logo */}
-          <Col></Col>
+    <div className={styles.box}>
+      <Container fluid className={styles.pageLogin}>
+        <Row className="h-100">
+          {/* Campo de Imagem */}
+          <Col
+            md={6}
+            className="d-flex align-items-center justify-content-center"
+          >
+            <img src={logo} alt="Logo do Sistema" className={styles.logo} />
+          </Col>
 
-          {/* Inicio do Formulário */}
-          <Col>
-            <Form>
-              <FloatingLabel></FloatingLabel>
+          {/* Coluna com os campos de login*/}
+          <Col
+            md={6}
+            className="d-flex align-items-center justify-content-center"
+          >
+            <Form
+              className={styles.form}
+              onSubmit={handleSubmit(onSubmit, onError)}
+            >
+              <h1 className={styles.tituloLogin}>LOGIN</h1>
+
+              {/* Campo de Email */}
+              <FloatingLabel
+              controlId="inputEmail"
+              label="Digite seu email"
+              className="mb-5"
+              >
+                <Form.Control
+                type="email"
+                {...register("email", {
+                  required: "O email é um campo obrigatório",
+                  pattern: {
+                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+                    message: "Email inválido"
+                  },
+                  validate: (value) => value.includes("@") || "O email deve possuir um @"
+                })}
+                />
+                {errors.email && (
+                  <p className="error">{errors.email.message}</p>
+                )}
+              </FloatingLabel>
+
+              {/* Campo de Senha */}
+              <FloatingLabel 
+              controlId="inputSenha" 
+              label="Digite sua senha" 
+              className="mb-5"
+              >
+                <Form.Control
+                type="password"
+                {...register("senha", {
+                  required: "Senha é um campo obrigatório",
+                })}
+                />
+                {errors.senha && (
+                  <p className="error">{errors.senha.message}</p>
+                )}
+              </FloatingLabel>
+
+              {/* Botão para o envio do formulário */}
+              <Button
+              style={{ 
+                backgroundColor: "#2d3839",
+                color: "#fffff"
+
+              }}
+              type="submit"
+              className="mb-4"
+              size="lg"
+              >
+                LOGIN
+              </Button>
+
+              {/* Alerta */}
+              <Alert variant="danger" className={alerta}>
+                Usuário ou senha inválidos
+              </Alert>
+
+
+
+
             </Form>
           </Col>
         </Row>

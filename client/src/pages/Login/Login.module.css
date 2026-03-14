@@ -1,9 +1,78 @@
-.pageLogin{
-    width: 490px;
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    border: 1px solid #ffffff80;
-    backdrop-filter: blur(8px);
-    background: #e0e4ce;
+.box {
+  min-height: 100vh;
+  background-color: #e0e4ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageLogin {
+  background: #6e9987;
+  width: 900px;
+  min-height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(17, 77, 77, 1);
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+.form {
+  width: 80%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* título */
+.tituloLogin {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .pageLogin {
+    width: 95%;
+    min-height: auto;
+  }
+
+  .logo {
+    max-width: 70%;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .pageLogin {
+    width: 95%;
+    padding: 2rem 1rem;
+  }
+
+  .logo {
+    max-width: 250px;
+    margin-bottom: 2rem;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .logo {
+    max-width: 180px;
+  }
+
+  .tituloLogin {
+    font-size: 1.5rem;
+  }
+
+  .form {
+    padding: 1rem;
+  }
 }
