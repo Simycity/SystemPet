@@ -1,12 +1,12 @@
 // Importando componentes do bootstrap
-import { Container, Nav, NavBar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const BarraNavegacao = () => {
     return(
         <div>
-            <NavBar bg="dark" data-bs-theme="dark">
+            <Navbar.Brand bg="dark" data-bs-theme="dark">
                 <Container>
-                    <Nav.Brand href="#home">NavBar</Nav.Brand>
+                    <Nav href="#home">NavBar</Nav>
                     <Nav>
                         <Nav.Link href="#home">Home</Nav.Link>    
                         <Nav.Link href="#Cadastro">Cadastro</Nav.Link>    
@@ -15,7 +15,7 @@ const BarraNavegacao = () => {
                         <Nav.Link href="#Funcionarios">Funcionarios</Nav.Link>    
                     </Nav>  
                 </Container>
-            </NavBar>
+            </Navbar.Brand>
         </div>
     );
 }

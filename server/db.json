@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "id": "1",
+      "idUsuario": "1",
       "nome": "Márcio Félix",
       "email": "felix.marcio@gmail.com",
       "senha": "Marcio2105",
@@ -11,12 +11,21 @@
 
   "funcionarios": [
     {
-      "id": "1",
+      "idFuncionario": "1",
       "nome_funcionario": "Vanessa Castro",
       "cpf": "123.456.789-00",
       "email": "castrovanessa@petlux.com.br",
       "senha": "V123456",
       "tipo": "Administrador",
+      "imagemPerfil": "arquivo.png"
+    }
+  ],
+
+  "pets": [
+    {
+      "idPet": "1",
+      "nomePet": "Nina",
+      "idadePet": "2 anos",
       "imagemPerfil": "arquivo.png"
     }
   ]
