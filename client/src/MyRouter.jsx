@@ -10,6 +10,7 @@ import RotasProtegidas from "./pages/RotasProtegidas.jsx";
 // Importação das páginas
 import Login from "./pages/Login/Login.jsx";
 import Cadastro from "./pages/Cadastro/Cadastro.jsx";
+import Home from "./pages/Home/Home.jsx";
 
 const router = createBrowserRouter([
   // Adicionando a rota principal
@@ -21,6 +22,16 @@ const router = createBrowserRouter([
       { index: true, element: <Login /> },
       { path: "login", element: <Login /> },
       { path: "cadastro", element: <Cadastro /> },
+    ],
+  },
+
+  // Rota da Home
+  {
+    path: "/",
+    element: <RotasProtegidas />,
+    errorElement: <PaginaErro />,
+    children: [
+      { path: "home", element: <Home /> }
     ],
   },
 ]);

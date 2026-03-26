@@ -1,15 +1,23 @@
 {
-  "funcionarios": [
-    { 
-        "id": "1", 
-        "nome": "", 
-        "email": "", 
-        "senha": "", 
-        "tipo": "Administrador" 
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Márcio Félix",
+      "email": "felix.marcio@gmail.com",
+      "senha": "Marcio2105",
+      "imagemPerfil": "arquivo.png"
     }
   ],
-  "usuarios": [{}],
-  "adestradores": [{}],
-  "pets": [{}],
-  "agenda": [{}]
+
+  "funcionarios": [
+    {
+      "id": "1",
+      "nome_funcionario": "Vanessa Castro",
+      "cpf": "123.456.789-00",
+      "email": "castrovanessa@petlux.com.br",
+      "senha": "V123456",
+      "tipo": "Administrador",
+      "imagemPerfil": "arquivo.png"
+    }
+  ]
 }

@@ -42,7 +42,7 @@ const Login = () => {
   // Assim que entrar na página, o LocalStorage é resetado
   useEffect(() => {
     logout();
-  }, []);
+  }, [logout]);
 
   // register = cria um obejto através dos valores do input
   // handleSubmit = envia os dados do formulário, caso de erro ou sucesso
@@ -65,15 +65,15 @@ const Login = () => {
   const onSubmit = async (data) => {
     console.log("Dados enviados:", data);
 
-    // Chamando função assíncrona para a verificação de login
-    // await = objeto de espera
+    //Chama a função assíncrona que verifica o login
     const resposta = await verificaLogin(data);
 
+    //Caso a resposta seja positiva mostra o alerta e leva ele pra home
     if (resposta === "Login efetuado com sucesso") {
       alert(resposta);
       navigate("/home");
     } else {
-      // Exibe mensagem de erro
+      // exibe o alerta de erro
       setAlerta("my-3 w-75 mx-auto");
     }
   };
@@ -111,7 +111,7 @@ const Login = () => {
               <FloatingLabel
                 controlId="inputEmail"
                 label="Digite seu email"
-                className="mb-5"
+                className="mb-4"
               >
                 <Form.Control
                   type="email"
@@ -138,6 +138,8 @@ const Login = () => {
               >
                 <Form.Control
                   type="password"
+                  minLength={6}
+                  maxLength={20}
                   {...register("senha", {
                     required: "Senha é um campo obrigatório",
                   })}
@@ -151,10 +153,10 @@ const Login = () => {
               <Button
                 style={{
                   backgroundColor: "#2d3839",
-                  color: "#fffff",
+                  color: "#ffffff",
                 }}
                 type="submit"
-                className="mb-4"
+                className="mb-3"
                 size="lg"
               >
                 LOGIN

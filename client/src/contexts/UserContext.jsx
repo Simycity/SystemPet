@@ -9,8 +9,8 @@ export const AuthContext = createContext();
     Provider = fornece as informações para os componentes filhos
 */
 export const AuthProvider = ({ children }) => {
-  //    Declarando o estado (useState) para guardar o usuário logado no momento
-  const [UsuarioNome, setUsuarioNome] = useState();
+  //  Declarando o estado (useState) para guardar o usuário logado no momento
+  const [UsuarioNome, setUsuarioNome] = useState("Visitante");
 
   /* 
     Utilizando o LocalStorage para busca de usuário, 
@@ -27,19 +27,23 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("ID", data.id);
     localStorage.setItem("userName", data.nome);
     localStorage.setItem("email", data.email);
-    localStorage.setItem("imagemPerfil", data.imagemUrl);
+    localStorage.setItem("imagemPerfil", data.imagemPerfil);
     setUsuarioNome(data.nome);
   };
 
   //   Função que remove as informações de login do localStorage e redefine o nome de usuário para Visitante
   const logout = () => {
-    localStorage.clear();
+    localStorage.removeItem("ID");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("email");
+    localStorage.removeItem("imagemPerfil");
+
     setUsuarioNome("Visitante");
   };
 
   //   Retorno do Provider com as informações de usuário, login e logout
   return (
-    <AuthContext.Provider value={{ setUsuarioNome, login, logout }}>
+    <AuthContext.Provider value={{ UsuarioNome, setUsuarioNome, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
