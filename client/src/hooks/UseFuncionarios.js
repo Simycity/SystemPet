@@ -1,5 +1,5 @@
 // Importando URL da API
-const url = import.meta.url.VITE_API_URL;
+const url = import.meta.env.VITE_API_URL;
 
 import { useState, useEffect } from "react";
 
@@ -38,7 +38,7 @@ export function useListaFuncionarios() {
     }
     fetchFuncionarios();
   }, []);
-  
+
   return funcionarios;
 }
 
@@ -48,7 +48,7 @@ export function useInserirFuncionarios() {
     try {
       const req = await fetch(`${url}/funcionarios`, {
         method: "POST",
-        headers: { "Conten: Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -59,9 +59,9 @@ export function useInserirFuncionarios() {
     } catch (error) {
       console.log("Erro ao inserir funcionário:", error.message);
     }
-
-    return { inserirFuncionarios };
   };
+
+  return { inserirFuncionarios };
 }
 
 // Busca funcionários por ID
@@ -82,11 +82,11 @@ export function useFuncionarioPorId() {
 
 // Atualiza Funcionário
 export function useAtualizaFuncionario() {
-  const atualizarFuncionario = async (data, idFuncionarios) => {
+  const atualizarFuncionario = async (data, idFuncionario) => {
     try {
-      const req = await fetch(`${url}/funcionarios/${idFuncionarios}`, {
+      const req = await fetch(`${url}/funcionarios/${idFuncionario}`, {
         method: "PUT",
-        headers: { "Content: Type": "aplication/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 

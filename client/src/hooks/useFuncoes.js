@@ -1,5 +1,5 @@
 // Importando URL da API
-const url = import.meta.url.VITE_API_URL;
+const url = import.meta.env.VITE_API_URL;
 
 import { useState, useEffect } from "react";
 
@@ -46,16 +46,17 @@ export function useInserirFuncao() {
   const inserirFuncao = async (data) => {
     try {
       const req = await fetch(`${url}/funcoes`, {
-        method: "PUT",
-        headers: { "Content: Type": "application/json" },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
       const res = await req.json();
       console.log("Função inserida:", res);
       return res;
+
     } catch (error) {
       console.log("Erro ao adicionar nova função", error.message);
-      
     }
   };
   return { inserirFuncao };
@@ -63,11 +64,11 @@ export function useInserirFuncao() {
 
 // Atualiza Função
 export function useAtualizaFuncao() {
-  const atualizarFuncao = async (data, idFuncao) => {
+  const atualizarFuncao = async (data) => {
     try {
-      const req = await fetch(`${url}/funcao/${idFuncao}`, {
+      const req = await fetch(`${url}/funcoes`, {
         method: "PUT",
-        headers: { "Content: Type": "aplication/json" },
+        headers: { "Content: Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -86,7 +87,7 @@ export function useAtualizaFuncao() {
 export function useDeletaFuncao() {
   const deletaFuncao = async (idFuncao) => {
     try {
-      const req = await fetch(`${url}/funcionarios/${idFuncao}`, {
+      const req = await fetch(`${url}/funcoes/${idFuncao}`, {
         method: "DELETE",
       });
 
