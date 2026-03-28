@@ -38,6 +38,7 @@ export function useListaFuncionarios() {
     }
     fetchFuncionarios();
   }, []);
+  
   return funcionarios;
 }
 
@@ -54,6 +55,7 @@ export function useInserirFuncionarios() {
       const res = await req.json();
       console.log("Funcionário inserido:", res);
       return res;
+
     } catch (error) {
       console.log("Erro ao inserir funcionário:", error.message);
     }
@@ -69,10 +71,12 @@ export function useFuncionarioPorId() {
       const req = await fetch(`${url}/funcionarios/${idFuncionario}`);
       const res = await req.json();
       console.log("Funcionário encontrado: ", res);
+
     } catch (error) {
       console.log("Erro ao buscar funcionário", error.message);
     }
   };
+
   return { buscaFuncionarioPorId };
 }
 
@@ -88,9 +92,30 @@ export function useAtualizaFuncionario() {
 
       const res = await req.json();
       console.log("Funcionário atualizado com sucesso: ", res);
+
     } catch (error) {
       console.log("Erro ao atualizar o funcionário:", error.message);
     }
   };
+
   return { atualizarFuncionario };
+}
+
+// Deleta Funcionário
+export function useDeletaFuncionario() {
+  const deletaFuncionario = async (idFuncionario) => {
+    try {
+      const req = await fetch(`${url}/funcionarios/${idFuncionario}`, {
+        method: "DELETE",
+      });
+
+      const res = await req.json();
+      console.log("funcionário deletado com sucesso!", res);
+
+    } catch (error) {
+      console.log("Erro ao deletar fuincionário: ", error.message);
+    }
+  };
+
+  return { deletaFuncionario };
 }
