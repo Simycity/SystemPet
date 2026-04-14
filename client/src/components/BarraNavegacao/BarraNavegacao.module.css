@@ -1,0 +1,57 @@
+/* Container geral da navbar */
+.navbarCustom {
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  padding: 12px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Marca (Home) */
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  transition: 0.3s;
+}
+
+.brand:hover {
+  color: #00d4ff !important;
+  transform: scale(1.05);
+}
+
+/* Links */
+.navLink {
+  color: #cccccc !important;
+  margin: 0 10px;
+  position: relative;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+/* Efeito hover */
+.navLink:hover {
+  color: #ffffff !important;
+}
+
+/* Linha animada embaixo */
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00d4ff;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Responsividade (opcional) */
+@media (max-width: 768px) {
+  .navLink {
+    margin: 10px 0;
+    display: block;
+  }
+}
