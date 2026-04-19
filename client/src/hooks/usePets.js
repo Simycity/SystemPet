@@ -50,7 +50,7 @@ export function useBuscaPetsId() {
       const res = await req.json();
       return res;
     } catch (erro) {
-      console.log("Erro ao buscar funcionário:", erro.message);
+      console.log("Erro ao buscar pet:", erro.message);
     }
   };
   return { buscarPetsPorId };
@@ -67,10 +67,10 @@ export function useInserirPets() {
       });
 
       const res = await req.json();
-      console.log("Funcionário inserido:", res);
+      console.log("Pet inserido:", res);
       return res;
     } catch (erro) {
-      console.log("Erro ao inserir funcionário:", erro.message);
+      console.log("Erro ao inserir pet:", erro.message);
     }
   };
   return { inserirPets };
@@ -89,7 +89,7 @@ export function useAtualizarPets() {
       console.log("Pet atualizado:", res);
       return res;
     } catch (erro) {
-      console.log("Erro ao atualizar funcionário:", erro.message);
+      console.log("Erro ao atualizar pet:", erro.message);
     }
   };
   return { atualizarPets };
@@ -103,7 +103,7 @@ export function useDeletarPet() {
         method: "DELETE",
       });
       const res = await req.json();
-      console.log("Pet atualizado com sucesso", res);
+      console.log("Pet deletado com sucesso", res);
       return res;
     } catch (erro) {
       console.log("Erro ao buscar pet: ", erro.message);
