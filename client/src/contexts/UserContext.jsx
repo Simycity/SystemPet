@@ -5,8 +5,8 @@ import { createContext, useState, useEffect } from "react";
 export const AuthContext = createContext();
 
 /*
-    Criando o provider do contexto
-    Provider = fornece as informações para os componentes filhos
+  Criando o provider do contexto
+  Provider = fornece as informações para os componentes filhos
 */
 export const AuthProvider = ({ children }) => {
   //  Declarando o estado (useState) para guardar o usuário logado no momento
