@@ -28,6 +28,7 @@ const ImagemPerfil = () => {
       setVisuImagemUrl(null);
     }
   };
+  
   return (
     <input
       type="file"
